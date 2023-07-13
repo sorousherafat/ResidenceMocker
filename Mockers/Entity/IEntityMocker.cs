@@ -1,4 +1,4 @@
-namespace ResidenceMocker.Mockers;
+namespace ResidenceMocker.Mockers.Entity;
 
 public interface IEntityMocker<out T>
 {

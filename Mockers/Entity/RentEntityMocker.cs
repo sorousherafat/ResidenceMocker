@@ -1,10 +1,9 @@
 using ResidenceMocker.Entities;
 using ResidenceMocker.Enums;
 using ResidenceMocker.Providers.Deterministic;
-using ResidenceMocker.Providers.Random;
 using ResidenceMocker.Randoms;
 
-namespace ResidenceMocker.Mockers;
+namespace ResidenceMocker.Mockers.Entity;
 
 public class RentEntityMocker : IEntityMocker<Rent>
 {

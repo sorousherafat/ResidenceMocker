@@ -1,7 +1,7 @@
 using ResidenceMocker.Entities;
 using ResidenceMocker.Randoms;
 
-namespace ResidenceMocker.Mockers;
+namespace ResidenceMocker.Mockers.Entity;
 
 public class AccountEntityMocker : IEntityMocker<Account>
 {

@@ -2,7 +2,7 @@ using ResidenceMocker.Entities;
 using ResidenceMocker.Providers.Random;
 using ResidenceMocker.Randoms;
 
-namespace ResidenceMocker.Mockers;
+namespace ResidenceMocker.Mockers.Entity;
 
 public class MessageEntityMocker : IEntityMocker<Message>
 {

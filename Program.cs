@@ -8,6 +8,7 @@ using ResidenceMocker;
 using ResidenceMocker.Entities;
 using ResidenceMocker.Enums;
 using ResidenceMocker.Mockers;
+using ResidenceMocker.Mockers.Entity;
 using ResidenceMocker.Providers.Deterministic;
 using ResidenceMocker.Providers.Random;
 using ResidenceMocker.Randoms;
