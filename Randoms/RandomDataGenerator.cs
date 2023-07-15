@@ -28,7 +28,7 @@ public class RandomDataGenerator : IRandomDataGenerator
 
     public bool NextBool(double rate = 0.5)
     {
-        return _random.NextDouble() > rate;
+        return _random.NextDouble() < rate;
     }
 
     public string NextAlphaString(int length = 8)
