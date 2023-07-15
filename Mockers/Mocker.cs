@@ -28,6 +28,8 @@ public class Mocker : IMocker
 
     public async Task MockAsync()
     {
+        _logger.LogInformation("Started mocking");
+        
         await MockEntitiesAsync(_dbContext.Accounts, Convert.ToInt32(_configuration["Mock:GuestCount"]) + Convert.ToInt32(_configuration["Mock:HostCount"]));
         await MockEntitiesAsync(_dbContext.Hosts, Convert.ToInt32(_configuration["Mock:HostCount"]));
         await MockEntitiesAsync(_dbContext.Guests, Convert.ToInt32(_configuration["Mock:GuestCount"]));
