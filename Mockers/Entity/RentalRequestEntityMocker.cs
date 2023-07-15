@@ -35,7 +35,7 @@ public class RentalRequestEntityMocker : IEntityMocker<RentalRequest>
             GuestNationalId = guest.NationalId,
             GuestsNo = _randomDataGenerator.NextShort(1, 6),
             ResidenceId = residence.Id,
-            RawPrice = residence.Price * length + residence.RentFee ?? 0,
+            RawPrice = residence.Price * length + residence.RentFee,
             ResolvedAt = isResolved ? _randomDataGenerator.NextEventDateTime() : null,
             Status = _randomDataGenerator.Pick<RentalRequestStatus>()
         };

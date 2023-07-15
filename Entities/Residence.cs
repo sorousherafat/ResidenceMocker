@@ -14,9 +14,9 @@ public sealed class Residence
 
     public byte[][]? AllPhotos { get; set; }
 
-    public int? Price { get; set; }
+    public int Price { get; set; }
 
-    public int? RentFee { get; set; }
+    public int RentFee { get; set; }
 
     public decimal Area { get; set; }
 
@@ -26,9 +26,9 @@ public sealed class Residence
 
     public string? Facility { get; set; }
 
-    public TimeOnly CheckInTime { get; set; }
+    public TimeOnly? CheckInTime { get; set; }
 
-    public TimeOnly CheckOutTime { get; set; }
+    public TimeOnly? CheckOutTime { get; set; }
 
     public string CancellationPolicy { get; set; } = null!;
 
