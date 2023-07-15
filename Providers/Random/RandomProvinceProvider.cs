@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using ResidenceMocker.Entities;
 using ResidenceMocker.Randoms;
 
