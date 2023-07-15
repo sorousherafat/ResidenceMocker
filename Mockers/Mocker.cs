@@ -43,9 +43,8 @@ public class Mocker : IMocker
         await MockEntitiesAsync(_dbContext.PriceChanges, Convert.ToInt32(_configuration["Mock:PriceChangeCount"]));
         await MockEntitiesAsync(_dbContext.Reviews, Convert.ToInt32(_configuration["Mock:ReviewCount"]));
         await MockEntitiesAsync(_dbContext.Unavailabilities, Convert.ToInt32(_configuration["Mock:UnavailabilityCount"]));
-        
+
         Environment.Exit(0);
-        // _lifeTime.StopApplication();
     }
 
     private async Task MockEntitiesAsync<T>(DbSet<T> dbSet, int count) where T : class

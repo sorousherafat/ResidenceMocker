@@ -2,8 +2,6 @@ namespace ResidenceMocker.Randoms;
 
 public interface IRandomDataGenerator
 {
-    int Next();
-    
     int Next(int maxValue);
     
     int Next(int minValue, int maxValue);
@@ -22,8 +20,6 @@ public interface IRandomDataGenerator
 
     string NextZipcode();
 
-    DateTime NextBirthDateTime();
-
     DateTime NextEventDateTime();
 
     DateOnly NextEventDateOnly();
@@ -35,6 +31,4 @@ public interface IRandomDataGenerator
     TEnum[] Pick<TEnum>(int length) where TEnum : struct, Enum;
     
     T Pick<T>(IList<T> list);
-
-    T Pick<T>(T[] array);
 }

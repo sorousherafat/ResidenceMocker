@@ -3,7 +3,7 @@ using ResidenceMocker.Entities;
 
 namespace ResidenceMocker;
 
-public partial class ResidenceContext : DbContext
+public class ResidenceContext : DbContext
 {
     public ResidenceContext()
     {
@@ -463,9 +463,5 @@ public partial class ResidenceContext : DbContext
                 .HasForeignKey(d => d.ResidenceId)
                 .HasConstraintName("unavailability_residenceid_fkey");
         });
-
-        OnModelCreatingPartial(modelBuilder);
     }
-
-    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }

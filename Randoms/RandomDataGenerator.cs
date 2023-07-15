@@ -4,7 +4,6 @@ public class RandomDataGenerator : IRandomDataGenerator
 {
     private const string Alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     private const string Digits = "0123456789";
-    private static readonly (DateTime, DateTime) BirthDateTime = (new DateTime(1960, 1, 1), new DateTime(2003, 1, 1));
     private static readonly (DateTime, DateTime) EventDateTime = (new DateTime(2018, 1, 1), new DateTime(2023, 1, 1));
     private readonly Random _random;
 
@@ -12,8 +11,6 @@ public class RandomDataGenerator : IRandomDataGenerator
     {
         _random = new Random();
     }
-
-    public int Next() => _random.Next();
 
     public int Next(int maxValue) => _random.Next(maxValue);
 
@@ -54,11 +51,6 @@ public class RandomDataGenerator : IRandomDataGenerator
         return NextStringContaining(Digits, 10);
     }
 
-    public DateTime NextBirthDateTime()
-    {
-        return NextDateTimeInRange(BirthDateTime);
-    }
-
     public DateTime NextEventDateTime()
     {
         return NextDateTimeInRange(EventDateTime);
@@ -95,12 +87,6 @@ public class RandomDataGenerator : IRandomDataGenerator
         return list[_random.Next(length)];
     }
     
-    public T Pick<T>(T[] array)
-    {
-        var length = array.Length;
-        return array[_random.Next(length)];
-    }
-
     private T[] NextArrayContaining<T>(IReadOnlyList<T> values, int length)
     {
         var valuesCount = values.Count;
