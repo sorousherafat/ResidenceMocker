@@ -23,7 +23,6 @@ public class ResidenceEntityMocker : IEntityMocker<Residence>
         var host = _hostProvider.Provide();
         var address = _addressProvider.Provide();
         var bedsNo = _randomDataGenerator.Next(1, 7);
-        var hasDefaultCheckInAndCheckOutTime = _randomDataGenerator.NextBool(0.9);
 
         return new Residence
         {
@@ -40,8 +39,8 @@ public class ResidenceEntityMocker : IEntityMocker<Residence>
             CreatedAt = _randomDataGenerator.NextEventDateTime(),
             RentFee = _randomDataGenerator.NextBool(0.2) ? _randomDataGenerator.Next(1000000) : 0,
             RoomsNo = _randomDataGenerator.NextShort(1, 5),
-            CheckInTime = hasDefaultCheckInAndCheckOutTime ? null : _randomDataGenerator.NextTimeOnly(),
-            CheckOutTime = hasDefaultCheckInAndCheckOutTime ? null : _randomDataGenerator.NextTimeOnly(),
+            CheckInTime = _randomDataGenerator.NextTimeOnly(),
+            CheckOutTime = _randomDataGenerator.NextTimeOnly(),
             BuildingType = _randomDataGenerator.Pick<BuildingType>(),
             BedsType = _randomDataGenerator.Pick<BedType>(bedsNo)
         };
