@@ -1,3 +1,4 @@
+using NpgsqlTypes;
 using ResidenceMocker.Entities;
 using ResidenceMocker.Providers.Random;
 using ResidenceMocker.Randoms;
@@ -19,6 +20,9 @@ public class AddressEntityMocker : IEntityMocker<Address>
     {
         var hasZipcode = _randomDataGenerator.NextBool(0.9);
         var city = _cityProvider.Provide();
+        var geolocationX = _randomDataGenerator.NextDouble(-89, 89);
+        var geolocationY = _randomDataGenerator.NextDouble(-89, 89);
+        var geolocation = new NpgsqlPoint(geolocationX, geolocationY);
         
         return new Address
         {
@@ -26,7 +30,8 @@ public class AddressEntityMocker : IEntityMocker<Address>
             Street = _randomDataGenerator.NextAlphaString(),
             Details = _randomDataGenerator.NextAlphaString(70),
             Zipcode = hasZipcode ? _randomDataGenerator.NextZipcode() : null,
-            IsRural = _randomDataGenerator.NextBool(0.3)
+            IsRural = _randomDataGenerator.NextBool(0.3),
+            Geolocation = geolocation
         };
     }
 }

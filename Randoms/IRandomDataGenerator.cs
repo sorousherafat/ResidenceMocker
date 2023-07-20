@@ -8,6 +8,8 @@ public interface IRandomDataGenerator
 
     short NextShort(short minValue, short maxValue);
 
+    double NextDouble(double minValue, double maxValue);
+
     decimal NextDecimal(decimal minValue, decimal maxValue);
 
     bool NextBool(double rate = 0.5);

@@ -21,6 +21,11 @@ public class RandomDataGenerator : IRandomDataGenerator
         return (short) _random.Next(minValue, maxValue);
     }
 
+    public double NextDouble(double minValue, double maxValue)
+    {
+        return _random.NextDouble() * (maxValue - minValue) + minValue;
+    }
+
     public decimal NextDecimal(decimal minValue, decimal maxValue)
     {
         return new decimal(_random.NextDouble() * (double) (maxValue - minValue) + (double) minValue);

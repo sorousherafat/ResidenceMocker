@@ -7,23 +7,26 @@ namespace ResidenceMocker.Mockers.Entity;
 public class MessageEntityMocker : IEntityMocker<Message>
 {
     private readonly IRandomDataGenerator _randomDataGenerator;
-    private readonly IRandomEntityProvider<Account> _accountProvider;
+    private readonly IRandomEntityProvider<Host> _hostProvider;
+    private readonly IRandomEntityProvider<Guest> _guestProvider;
 
-    public MessageEntityMocker(IRandomDataGenerator randomDataGenerator, IRandomEntityProvider<Account> accountProvider)
+    public MessageEntityMocker(IRandomDataGenerator randomDataGenerator, IRandomEntityProvider<Host> hostProvider, IRandomEntityProvider<Guest> guestProvider)
     {
         _randomDataGenerator = randomDataGenerator;
-        _accountProvider = accountProvider;
+        _hostProvider = hostProvider;
+        _guestProvider = guestProvider;
     }
 
     public Message MockEntity(int id)
     {
-        var sender = _accountProvider.Provide();
-        var receiver = _accountProvider.Provide();
+        var host = _hostProvider.Provide();
+        var guest = _guestProvider.Provide();
 
         return new Message
         {
-            SenderNationalId = sender.NationalId,
-            ReceiverNationalId = receiver.NationalId,
+            HostNationalId = host.NationalId,
+            GuestNationalId = guest.NationalId,
+            SentByHost = _randomDataGenerator.NextBool(),
             SentAt = _randomDataGenerator.NextEventDateTime(),
             Text = _randomDataGenerator.NextAlphaString(20)
         };

@@ -47,10 +47,10 @@ public class ResidenceContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder
-            .HasPostgresEnum("bed_type", new[] {"KingSized", "QueenSized", "DoubleBed", "SingleBed"})
-            .HasPostgresEnum("building_type", new[] {"Apartment", "Villa", "Hotel-Apartment", "Ecotourism"})
-            .HasPostgresEnum("rent_status", new[] {"Cancelled", "Pending", "Completed", "Ongoing"})
-            .HasPostgresEnum("rental_request_status", new[] {"Pending", "Cancelled", "Rejected", "Accepted"});
+            .HasPostgresEnum("bed_type", new[] {"king", "queen", "double", "single"})
+            .HasPostgresEnum("building_type", new[] {"apartment", "villa", "hotel", "eco"})
+            .HasPostgresEnum("rent_status", new[] {"cancelled", "pending", "completed", "ongoing"})
+            .HasPostgresEnum("rental_request_status", new[] {"pending", "cancelled", "rejected", "accepted"});
 
         modelBuilder.Entity<Account>(entity =>
         {
@@ -236,28 +236,30 @@ public class ResidenceContext : DbContext
             entity.Property(e => e.Id)
                 .ValueGeneratedOnAdd()
                 .HasColumnName("id");
-            entity.Property(e => e.ReceiverNationalId)
+            entity.Property(e => e.HostNationalId)
                 .HasMaxLength(10)
                 .IsFixedLength()
-                .HasColumnName("recievernationalid");
-            entity.Property(e => e.SenderNationalId)
+                .HasColumnName("hostnationalid");
+            entity.Property(e => e.GuestNationalId)
                 .HasMaxLength(10)
                 .IsFixedLength()
-                .HasColumnName("sendernationalid");
+                .HasColumnName("guestnationalid");
+            entity.Property(e => e.SentByHost)
+                .HasColumnName("sentbyhost");
             entity.Property(e => e.SentAt)
                 .HasColumnType("timestamp without time zone")
                 .HasColumnName("sentat");
             entity.Property(e => e.Text).HasColumnName("text");
 
-            entity.HasOne(d => d.ReceiverAccount).WithMany()
-                .HasForeignKey(d => d.ReceiverNationalId)
+            entity.HasOne(d => d.Host).WithMany()
+                .HasForeignKey(d => d.HostNationalId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("message_recievernationalid_fkey");
+                .HasConstraintName("message_hostnationalid_fkey");
 
-            entity.HasOne(d => d.SenderAccount).WithMany()
-                .HasForeignKey(d => d.SenderNationalId)
+            entity.HasOne(d => d.Guest).WithMany()
+                .HasForeignKey(d => d.GuestNationalId)
                 .OnDelete(DeleteBehavior.SetNull)
-                .HasConstraintName("message_sendernationalid_fkey");
+                .HasConstraintName("message_guestnationalid_fkey");
         });
 
         modelBuilder.Entity<PriceChange>(entity =>
