@@ -16,7 +16,7 @@ public class RentEntityMocker : IEntityMocker<Rent>
         _rentalRequestProvider = rentalRequestProvider;
     }
 
-    public Rent MockEntity(int id)
+    public Rent MockEntity()
     {
         var rentalRequest = _rentalRequestProvider.Provide();
         var isCancelled = _randomDataGenerator.NextBool(0.1);

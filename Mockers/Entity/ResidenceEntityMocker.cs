@@ -18,7 +18,7 @@ public class ResidenceEntityMocker : IEntityMocker<Residence>
         _addressProvider = addressProvider;
     }
 
-    public Residence MockEntity(int id)
+    public Residence MockEntity()
     {
         var host = _hostProvider.Provide();
         var address = _addressProvider.Provide();

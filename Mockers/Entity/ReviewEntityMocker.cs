@@ -15,7 +15,7 @@ public class ReviewEntityMocker : IEntityMocker<Review>
         _rentProvider = rentProvider;
     }
 
-    public Review MockEntity(int id)
+    public Review MockEntity()
     {
         var rent = _rentProvider.Provide();
         var hasComment = _randomDataGenerator.NextBool(0.7);
@@ -25,7 +25,7 @@ public class ReviewEntityMocker : IEntityMocker<Review>
             RentId = rent.Id,
             Rating = _randomDataGenerator.NextShort(1, 6),
             Comment = hasComment ? _randomDataGenerator.NextAlphaString() : null,
-            IsByHost = rent.Reviews.Count == 0,
+            IsByHost = _randomDataGenerator.NextBool(),
             CreatedAt = _randomDataGenerator.NextEventDateTime()
         };
     }

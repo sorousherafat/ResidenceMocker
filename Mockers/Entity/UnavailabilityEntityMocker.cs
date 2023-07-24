@@ -15,7 +15,7 @@ public class UnavailabilityEntityMocker : IEntityMocker<Unavailability>
         _residenceProvider = residenceProvider;
     }
 
-    public Unavailability MockEntity(int id)
+    public Unavailability MockEntity()
     {
         var residence = _residenceProvider.Provide();
         var hasEndTime = _randomDataGenerator.NextBool(0.3);

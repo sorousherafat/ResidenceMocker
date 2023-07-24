@@ -15,7 +15,7 @@ public class CityEntityMocker : IEntityMocker<City>
         _provinceProvider = provinceProvider;
     }
 
-    public City MockEntity(int id)
+    public City MockEntity()
     {
         var province = _provinceProvider.Provide();
         

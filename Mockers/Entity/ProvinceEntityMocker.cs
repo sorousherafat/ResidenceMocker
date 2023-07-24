@@ -12,7 +12,7 @@ public class ProvinceEntityMocker : IEntityMocker<Province>
         _randomDataGenerator = randomDataGenerator;
     }
 
-    public Province MockEntity(int id)
+    public Province MockEntity()
     {
         return new Province
         {

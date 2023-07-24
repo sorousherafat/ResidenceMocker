@@ -15,7 +15,7 @@ public class HostEntityMocker : IEntityMocker<Host>
         _accountProvider = accountProvider;
     }
 
-    public Host MockEntity(int id)
+    public Host MockEntity()
     {
         var account = _accountProvider.Provide();
         var isVerified = _randomDataGenerator.NextBool();

@@ -17,7 +17,7 @@ public class MessageEntityMocker : IEntityMocker<Message>
         _guestProvider = guestProvider;
     }
 
-    public Message MockEntity(int id)
+    public Message MockEntity()
     {
         var host = _hostProvider.Provide();
         var guest = _guestProvider.Provide();

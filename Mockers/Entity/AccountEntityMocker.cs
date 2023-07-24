@@ -12,7 +12,7 @@ public class AccountEntityMocker : IEntityMocker<Account>
         _randomDataGenerator = randomDataGenerator;
     }
 
-    public Account MockEntity(int id)
+    public Account MockEntity()
     {
         return new Account
         {

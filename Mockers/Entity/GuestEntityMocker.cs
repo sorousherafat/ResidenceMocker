@@ -15,7 +15,7 @@ public class GuestEntityMocker : IEntityMocker<Guest>
         _accountProvider = accountProvider;
     }
 
-    public Guest MockEntity(int id)
+    public Guest MockEntity()
     {
         var account = _accountProvider.Provide();
         

@@ -15,7 +15,7 @@ public class DamageReportEntityMocker : IEntityMocker<DamageReport>
         _rentProvider = rentProvider;
     }
 
-    public DamageReport MockEntity(int id)
+    public DamageReport MockEntity()
     {
         var rent = _rentProvider.Provide();
         var isAccepted = _randomDataGenerator.NextBool(0.3);

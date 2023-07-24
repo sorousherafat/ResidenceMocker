@@ -15,7 +15,7 @@ public class ComplaintEntityMocker : IEntityMocker<Complaint>
         _rentProvider = rentProvider;
     }
 
-    public Complaint MockEntity(int id)
+    public Complaint MockEntity()
     {
         var rent = _rentProvider.Provide();
         var isResolved = _randomDataGenerator.NextBool(0.3);

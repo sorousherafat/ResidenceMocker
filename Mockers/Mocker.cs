@@ -54,7 +54,7 @@ public class Mocker : IMocker
         var entityMocker = _serviceProvider.GetService<IEntityMocker<T>>();
         Debug.Assert(entityMocker != null, nameof(entityMocker) + " != null");
 
-        dbSet.AddRange(Enumerable.Range(1, count).Select(i => entityMocker.MockEntity(i)));
+        dbSet.AddRange(Enumerable.Range(1, count).Select(i => entityMocker.MockEntity()));
         await _dbContext.SaveChangesAsync();
 
         _logger.LogInformation("Mocked {FullName} entities", typeof(T).FullName);

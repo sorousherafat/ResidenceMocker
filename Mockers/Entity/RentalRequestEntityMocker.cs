@@ -18,7 +18,7 @@ public class RentalRequestEntityMocker : IEntityMocker<RentalRequest>
         _guestProvider = guestProvider;
     }
 
-    public RentalRequest MockEntity(int id)
+    public RentalRequest MockEntity()
     {
         var residence = _residenceProvider.Provide();
         var guest = _guestProvider.Provide();

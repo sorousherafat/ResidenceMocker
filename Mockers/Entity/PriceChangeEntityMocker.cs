@@ -15,7 +15,7 @@ public class PriceChangeEntityMocker : IEntityMocker<PriceChange>
         _residenceProvider = residenceProvider;
     }
 
-    public PriceChange MockEntity(int id)
+    public PriceChange MockEntity()
     {
         var residence = _residenceProvider.Provide();
         var hasEndTime = _randomDataGenerator.NextBool(0.3);

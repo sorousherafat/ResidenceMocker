@@ -16,7 +16,7 @@ public class AddressEntityMocker : IEntityMocker<Address>
         _cityProvider = cityProvider;
     }
 
-    public Address MockEntity(int id)
+    public Address MockEntity()
     {
         var hasZipcode = _randomDataGenerator.NextBool(0.9);
         var city = _cityProvider.Provide();
